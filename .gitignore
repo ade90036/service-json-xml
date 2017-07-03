@@ -32,3 +32,6 @@ xcuserdata
 *.moved-aside
 *.xcuserstate
 *.xcscmblueprint
+
+.idea/*
+.gradle/*
