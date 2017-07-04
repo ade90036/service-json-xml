@@ -14,7 +14,12 @@ public class GreetingController {
 
     @RequestMapping(value = "/greeting", method = RequestMethod.POST, produces={"application/json","application/xml"},
             consumes={"application/json", "application/xml"})
-    public Greeting greeting(@RequestBody Greeting name) {
-        return new Greeting(name.getMessage()+" from response");
+    public Greeting greeting(@RequestBody Greeting greeting) {
+
+        if (greeting.getMessage().contains("RuntimeException")) {
+            throw new RuntimeException("Test runtime exception");
+        }
+
+        return new Greeting(greeting.getMessage()+" from response");
     }
 }
